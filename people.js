@@ -2,33 +2,60 @@ export function getFirstNames(people) {
   return people.map(person => person.firstName)
 }
 
-function getFullName(person) {}
+function getFullName(person) {
+  return person.firstName + ' ' + person.lastName
+}
 
 export function getFullNames(people) {
-  return people.map(person => person.firstName + ' ' + person.lastName)
+  return people.map(getFullName)
 }
 
 export function getNameAndAge(people) {
-  return people.map(person => person.lastName + ' (' + person.age + ')')
+  return people.map(person => `${person.lastName} (${person.age})`)
 }
 
-export function getAgesOfFriends(people, id) {}
+export function getAgesOfFriends(people, id) {
+  return findPersonById(people, id)
+    .friendIds.map(id => findPersonById(people, id))
+    .map(person => person.age)
+}
 
-export function getFullNamesSortedByAge(people) {}
+export function getFullNamesSortedByAge(people) {
+  return people
+    .slice()
+    .sort((a, b) => (a.age < b.age ? -1 : 1))
+    .map(getFullName)
+}
 
-export function getPeopleByAge(people, age) {}
+export function getPeopleByAge(people, age) {
+  return people.filter(person => person.age === age)
+}
 
-export function getPeopleNamesOlderThan(people, age) {}
+export function getPeopleNamesOlderThan(people, age) {
+  return people.filter(person => person.age > age).map(getFullName)
+}
 
-export function getPeopleByLastName(people, lastName) {}
+export function getPeopleByLastName(people, lastName) {
+  return people.filter(person => person.lastName === lastName)
+}
 
-export function findPersonById(people, id) {}
+export function findPersonById(people, id) {
+  return people.find(person => person.id === id)
+}
 
-export function findPeopleByIds(people, ids) {}
+export function findPeopleByIds(people, ids) {
+  return ids.map(id => findPersonById(people, id))
+}
 
-export function getFriendsOfPersonById(people, id) {}
+export function getFriendsOfPersonById(people, id) {
+  return findPersonById(people, id).friendIds.map(id =>
+    findPersonById(people, id)
+  )
+}
 
-export function isAnyoneOlderThan(people, age) {}
+export function isAnyoneOlderThan(people, age) {
+  return people.some(person => person.age > age)
+}
 
 export function getPeople() {
   return [

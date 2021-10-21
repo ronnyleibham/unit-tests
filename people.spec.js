@@ -59,7 +59,7 @@ describe('people', () => {
   })
 
   describe('getFullNamesSortedByAge', () => {
-    it.skip('returns an array of last names sorted by age', () => {
+    it('returns an array of last names sorted by age', () => {
       const result = getFullNamesSortedByAge(people)
       expect(result).toEqual([
         'John Doe',
@@ -72,7 +72,7 @@ describe('people', () => {
   })
 
   describe('getPeopleByAge', () => {
-    it.skip('returns an array of people of a certain age', () => {
+    it('returns an array of people of a certain age', () => {
       const result = getPeopleByAge(people, 23)
       expect(result).toEqual([
         {
@@ -88,14 +88,14 @@ describe('people', () => {
   })
 
   describe('getPeopleNamesOlderThan', () => {
-    it.skip('returns an array of people older than a certain age', () => {
+    it('returns an array of people older than a certain age', () => {
       const result = getPeopleNamesOlderThan(people, 30)
       expect(result).toEqual(['Max Mustermann', 'Erika Musterfrau'])
     })
   })
 
   describe('getPeopleByLastName', () => {
-    it.skip('returns an array of people of a certain lastName', () => {
+    it('returns an array of people of a certain lastName', () => {
       const result = getPeopleByLastName(people, 'Doe')
       expect(result).toEqual([
         {
@@ -120,7 +120,7 @@ describe('people', () => {
 
   describe('getPersonById', () => {
     // hint: use Array.prototype.find for the implementation
-    it.skip('returns the full object of a person', () => {
+    it('returns the full object of a person', () => {
       const result = findPersonById(people, 1)
       expect(result).toEqual({
         id: 1,
@@ -134,7 +134,7 @@ describe('people', () => {
   })
 
   describe('findPeopleByIds', () => {
-    it.skip('returns an array of people objects for an array of ids', () => {
+    it('returns an array of people objects for an array of ids', () => {
       const result = findPeopleByIds(people, [1, 2])
       expect(result).toEqual([
         {
@@ -158,7 +158,7 @@ describe('people', () => {
   })
 
   describe('getFriendsOfPersonById', () => {
-    it.skip("returns a populated array of friends for a person's id", () => {
+    it("returns a populated array of friends for a person's id", () => {
       const result = getFriendsOfPersonById(people, 1)
       expect(result).toEqual([
         {
@@ -191,12 +191,12 @@ describe('people', () => {
 
   // hint: implementation should use Array.prototype.some
   describe('isAnyoneOlderThan', () => {
-    it.skip('returns true, if any person is older', () => {
+    it('returns true, if any person is older', () => {
       const result = isAnyoneOlderThan(people, 30)
       expect(result).toEqual(true)
     })
 
-    it.skip('returns false, if no person is older', () => {
+    it('returns false, if no person is older', () => {
       const result = isAnyoneOlderThan(people, 40)
       expect(result).toEqual(false)
     })
